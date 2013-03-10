@@ -10,11 +10,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name = "ACTIVITIES")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Activity extends AbstractEntity {
 	
 	@Column

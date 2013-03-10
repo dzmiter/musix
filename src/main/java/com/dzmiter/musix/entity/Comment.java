@@ -2,6 +2,8 @@ package com.dzmiter.musix.entity;
 
 import java.util.Date;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +17,7 @@ import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "COMMENTS")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Comment extends AbstractEntity {
 
 	@Column

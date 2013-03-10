@@ -21,7 +21,7 @@ public class HomeController {
 	private static final int tracksOnPage = 50;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {		
+	public String home(Model model) {
 		List<Track> mostListened = dao.topList(Track.class, tracksOnPage, "playsnumber");
 		List<Track> mostPopular = dao.topList(Track.class, tracksOnPage, "rating");
 		model.addAttribute("mostListened", mostListened);
