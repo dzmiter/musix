@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="resources/img/icon.png" type="image/x-icon" />
     <style type="text/css">
       body {
         padding-top: 60px;

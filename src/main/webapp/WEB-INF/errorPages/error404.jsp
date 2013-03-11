@@ -2,7 +2,7 @@
 <head>
     <title>Page not found</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="shortcut icon" href="resources/img/icon.png" type="image/x-icon" /> 
+    <link rel="shortcut icon" href='http://localhost:8080/musix/resources/img/icon.png' type="image/x-icon" /> 
 	<style>
 		body {
 			background-color:#bfbfbf;
@@ -19,8 +19,8 @@
 <body>
     <div id="error">
       <a href="http://localhost:8080/musix">
-          <img src="resources/img/404.gif" alt="404 page not found"/>
-      </a>
+          <img src="http://localhost:8080/musix/resources/img/404.gif" alt="404 page not found"/>
+      </a>     
     </div>
 </body>
 

@@ -14,13 +14,15 @@
         padding-bottom: 40px;
       }
     </style>
-	<link rel="shortcut icon" href="resources/img/icon.png" type="image/x-icon" />
+	<c:import url="links.jsp"></c:import>
+	<link id="player" href="./resources/skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet">
+	<script type="text/javascript" src="./resources/js/playerStyleSwitcher.js"></script>
   </head>
 
   <body>
 
     <div class="container">
-	  
+
 	  <c:import url="header.jsp"></c:import>
 
       <div class="hero-unit">
@@ -50,13 +52,12 @@
       </div>
      
 	  <c:import url="player.jsp"></c:import>
-	  
      
       <c:import url="footer.jsp"></c:import>
 
     </div> <!-- /container -->
     
-	<script type="text/javascript" src="resources/js/jquery.jplayer.min.js"></script>
+	<script type="text/javascript" src="./resources/js/jquery.jplayer.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
 	  $("#jquery_jplayer_1").jPlayer( {
@@ -64,10 +65,12 @@
 	      $(this).jPlayer("setMedia", {
 	        mp3: "http://s3.amazonaws.com/audiojs/02-juicy-r.mp3" 
 	      });
-	 	}
+	 	}, 
+	 	supplied: "mp3",
+	    swfPath: "./resources/swf"
 	  });
 	});
 	</script>    
-	<script type="text/javascript" src="resources/js/playerStyleSwitcher.js"></script>
+	<script type="text/javascript" src="./resources/js/playerStyleSwitcher.js"></script>
   </body>
 </html>

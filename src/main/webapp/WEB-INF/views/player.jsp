@@ -1,5 +1,3 @@
-<link type="text/css" id="player" href="resources/skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" />
-
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
   <div id="jp_container_1" class="jp-audio">
     <div class="jp-type-single">
@@ -10,8 +8,8 @@
           <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
           <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
           <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
-          <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
-        </ul>
+          <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>         
+        </ul>	
         <div class="jp-progress">
           <div class="jp-seek-bar">
             <div class="jp-play-bar"></div>
@@ -34,7 +32,12 @@
         To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
       </div>
     </div>
+    <label class="radio">
+	  <input type="radio" class="styleswitcher" name="optionsRadios" id="blue" value="blue" checked>
+	  Blue monday
+	</label>
+	<label class="radio">
+	  <input type="radio" class="styleswitcher" name="optionsRadios" id="pink" value="pink">
+	  Pink flag
+	</label>
   </div>
-  
-  <input type="button" value="blue monday" id="blue" class="styleswitcher btn btn-info"> 
-  <input type="button" value="Pink flag" id="pink" class="styleswitcher btn btn-info">

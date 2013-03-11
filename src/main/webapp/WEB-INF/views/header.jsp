@@ -3,9 +3,6 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<link id="main" href="resources/css/bootstrap.min.css" rel="stylesheet">	
-<link id="responsive" href="resources/css/bootstrap-responsive.min.css" rel="stylesheet">
-
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">

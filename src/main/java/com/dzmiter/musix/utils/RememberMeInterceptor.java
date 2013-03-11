@@ -21,33 +21,31 @@ public class RememberMeInterceptor extends HandlerInterceptorAdapter {
 			HttpServletResponse response, Object handler) throws Exception {
 		
 		HttpSession sess = request.getSession();
-		Cookie[] co = request.getCookies();
-		for(Cookie c : co) {
-			System.out.println(c.getName() + " <---> " + c.getValue());
-		}
 		if(sess.getAttribute("email") == null || sess.getAttribute("myId") == null) {
 			Cookie[] cookies = request.getCookies();
-			for(Cookie c : cookies) {
-				if(c.getName().equals("musix-login")) {
-					String[] val = c.getValue().split("-");
-					if(c.getValue() != null && val.length == 2 && val[0].matches("[0-9]")) {
-						Long id = Long.parseLong(val[0]);
-						User user = null;
-						if(id != null) {
-							user = dao.find(User.class, id);
-						}
-						String email = null;
-						if(user != null) {
-							email = user.getEmail();
-						}
-						if(val[1].equals(user.getAuthToken()) && email != null) {
-							sess.setAttribute("myId", id);
-							sess.setAttribute("email", email);
-						}						
-					}	
-					break;
-				} 
-			}
+			if(cookies != null) {
+				for(Cookie c : cookies) {
+					if(c.getName().equals("musix-login")) {
+						String[] val = c.getValue().split("-");
+						if(c.getValue() != null && val.length == 2 && val[0].matches("[0-9]")) {
+							Long id = Long.parseLong(val[0]);
+							User user = null;
+							if(id != null) {
+								user = dao.find(User.class, id);
+							}
+							String email = null;
+							if(user != null) {
+								email = user.getEmail();
+							}
+							if(val[1].equals(user.getAuthToken()) && email != null) {
+								sess.setAttribute("myId", id);
+								sess.setAttribute("email", email);
+							}						
+						}	
+						break;
+					} 
+				}
+			}			
 		}
 		return super.preHandle(request, response, handler);
 	}
