@@ -7,17 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-	<link href="resources/css/bootstrap.min.css" rel="stylesheet">	
-	<title>Home</title>
-	<link href="resources/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="resources/img/icon.png" type="image/x-icon" />
+    <title>Home</title>	
     <style type="text/css">
       body {
         padding-top: 60px;
         padding-bottom: 40px;
       }
     </style>
-
+	<link rel="shortcut icon" href="resources/img/icon.png" type="image/x-icon" />
   </head>
 
   <body>
@@ -51,10 +48,26 @@
           </ol>
         </div>
       </div>
-
-	  <c:import url="footer.jsp"></c:import>
+     
+	  <c:import url="player.jsp"></c:import>
+	  
+     
+      <c:import url="footer.jsp"></c:import>
 
     </div> <!-- /container -->
-
+    
+	<script type="text/javascript" src="resources/js/jquery.jplayer.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $("#jquery_jplayer_1").jPlayer( {
+	    ready: function () {
+	      $(this).jPlayer("setMedia", {
+	        mp3: "http://s3.amazonaws.com/audiojs/02-juicy-r.mp3" 
+	      });
+	 	}
+	  });
+	});
+	</script>    
+	<script type="text/javascript" src="resources/js/playerStyleSwitcher.js"></script>
   </body>
 </html>

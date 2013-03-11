@@ -10,9 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">	
-	<link href="resources/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="resources/img/icon.png" type="image/x-icon" />
     <style type="text/css">
       body {
@@ -45,7 +42,6 @@
         margin-bottom: 15px;
         padding: 7px 9px;
       }
-
     </style>
   </head>
 

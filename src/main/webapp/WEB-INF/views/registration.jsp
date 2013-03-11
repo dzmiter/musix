@@ -9,10 +9,8 @@
     <title>Registration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">
-	
-    <!-- Le styles -->
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="author" content="">	
+ 	<link rel="shortcut icon" href="resources/img/icon.png" type="image/x-icon" />   
     <style type="text/css">
       body {
         padding-top: 40px;
@@ -45,8 +43,6 @@
         padding: 7px 9px;
       }
     </style>
-    <link href="resources/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="resources/img/icon.png" type="image/x-icon" />
   </head>
 
   <body>
