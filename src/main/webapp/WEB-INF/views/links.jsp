@@ -1,5 +1,5 @@
 <link id="main" href="./resources/css/bootstrap.min.css" rel="stylesheet">	
-<link id="responsive" href="./resources/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="./resources/css/bootstrap-responsive.min.css" rel="stylesheet">
 <link rel="shortcut icon" href="./resources/img/icon.png" type="image/x-icon" />
 <link href="./resources/css/arrow-up.css" rel="stylesheet">
 

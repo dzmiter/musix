@@ -42,7 +42,7 @@ public interface CrudDAO {
 	 * @return the object
 	 */
 	<T, PK extends Serializable> T find(Class<T> type, PK id);
-
+	
 	/**
 	 * List of objects
 	 * 
@@ -61,5 +61,8 @@ public interface CrudDAO {
 	 * @return
 	 */
 	<T> List<T> topList(Class<T> type, int amount, String field);
+	
+	public void doIndex() throws InterruptedException;
+	public <T> List<T> search(Class<T> type, String queryString, String onField);
 	
 }

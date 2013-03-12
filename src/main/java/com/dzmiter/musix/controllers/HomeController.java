@@ -23,8 +23,17 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		List<Track> mostListened = dao.topList(Track.class, tracksOnPage, "playsnumber");
-		List<Track> mostPopular = dao.topList(Track.class, tracksOnPage, "rating");
+		List<Track> mostPopular;// = dao.topList(Track.class, tracksOnPage, "rating");
 		model.addAttribute("mostListened", mostListened);
+//		model.addAttribute("mostPopular", mostPopular);
+		
+		try {
+			dao.doIndex();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		mostPopular = dao.search(Track.class, "yu olol zsdf", "name");
 		model.addAttribute("mostPopular", mostPopular);
 		return "home";
 	}

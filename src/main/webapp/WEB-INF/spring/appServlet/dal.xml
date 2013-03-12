@@ -29,6 +29,8 @@
 				<prop key="hibernate.cache.use_second_level_cache">true</prop>
 				<prop key="hibernate.cache.use_query_cache">true</prop>
 				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+				<prop key="hibernate.search.default.directory_provider">org.hibernate.search.store.impl.FSDirectoryProvider</prop>
+				<prop key="hibernate.search.default.indexBase">/home/dzmiter/musix_indexes</prop> 
 			</props>
 		</property>
 		<property name="packagesToScan" value="com.dzmiter.musix.entity"></property>

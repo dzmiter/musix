@@ -17,12 +17,19 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
 
 @Entity
 @Table(name = "TRACKS")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Indexed
 public class Track extends AbstractEntity {
 
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	@Column
 	private String name;
 	
@@ -47,6 +54,7 @@ public class Track extends AbstractEntity {
 	@Column
 	private String format;
 	
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	@Column
 	private String description;
 	

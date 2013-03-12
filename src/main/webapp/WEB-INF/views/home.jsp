@@ -10,7 +10,7 @@
     <title>Home</title>	
     <style type="text/css">
       body {
-        padding-top: 60px;
+        padding-top: 80px;
         padding-bottom: 40px;
       }
     </style>
@@ -36,7 +36,7 @@
           <h3>Most listened tracks</h3>
           <ol>
 	          <c:forEach items="${mostListened}" var="track">
-	          	<li>id:${track.id} rating:${track.rating} <b>playsnumber:${track.playsnumber}</b></li>
+	          	<li>id:${track.id} rating:${track.name}</li>
 	          </c:forEach>
           </ol>
         </div>
@@ -45,7 +45,7 @@
           <h3>Most popular tracks</h3>
           <ol>
 	          <c:forEach items="${mostPopular}" var="track">
-	          	<li>id:${track.id} <b>rating:${track.rating}</b> playsnumber:${track.playsnumber}</li>
+	          	<li>id:${track.id} rating:${track.name}</li>
 	          </c:forEach>
           </ol>
         </div>

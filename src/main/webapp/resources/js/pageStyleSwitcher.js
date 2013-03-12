@@ -7,11 +7,9 @@
 	        $(".pagestyleswitcher").click(function(){
 	            var id = $(this).attr("id");
 	            if(id == 'dark') {
-	            	$("#main").attr("href", "resources/css/bootstrap.min.css");
-	            	$("#responsive").attr("href", "resources/css/bootstrap-responsive.min.css");
+	            	$("#main").attr("href", "./resources/css/readable.min.css");
 	            } else if(id == 'light') {
-	            	$("#main").attr("href", "");
-	            	$("#responsive").attr("href", "");
+	            	$("#main").attr("href", "./resources/css/bootstrap.min.css");
 	            }	            
 	        });
 	    },

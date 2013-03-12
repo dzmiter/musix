@@ -80,6 +80,11 @@
 			<artifactId>hibernate-ehcache</artifactId>
 			<version>4.2.0.CR2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-search</artifactId>
+			<version>4.2.0.Final</version>
+		</dependency>
   </dependencies>
   <build>
     <finalName>musix</finalName>
