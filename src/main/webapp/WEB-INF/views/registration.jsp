@@ -12,7 +12,7 @@
     <meta name="author" content="">	
     <style type="text/css">
       body {
-        padding-top: 40px;
+        padding-top: 60px;
         padding-bottom: 40px;
         background-color: #f5f5f5;
       }

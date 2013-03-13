@@ -15,8 +15,6 @@
       }
     </style>
 	<c:import url="links.jsp"></c:import>
-	<link id="player" href="./resources/skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet">
-	<script type="text/javascript" src="./resources/js/playerStyleSwitcher.js"></script>
   </head>
 
   <body>
@@ -33,43 +31,21 @@
 
       <div class="row-fluid marketing">
         <div class="span6">
-          <h3>Most listened tracks</h3>
+          <h3>Search result</h3>
           <ol>
-	          <c:forEach items="${mostListened}" var="track">
+	          <c:forEach items="${searchResult}" var="track">
 	          	<li>id:${track.id} rating:${track.name} description:${track.description}</li>
 	          </c:forEach>
           </ol>
         </div>
 
-        <div class="span6">
-          <h3>Most popular tracks</h3>
-          <ol>
-	          <c:forEach items="${mostPopular}" var="track">
-	          	<li>id:${track.id} rating:${track.name} description:${track.description}</li>
-	          </c:forEach>
-          </ol>
-        </div>
+
       </div>
      
-	  <c:import url="player.jsp"></c:import>
      
       <c:import url="footer.jsp"></c:import>
 
     </div> <!-- /container -->
     
-	<script type="text/javascript" src="./resources/js/jquery.jplayer.min.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-	  $("#jquery_jplayer_1").jPlayer( {
-	    ready: function () {
-	      $(this).jPlayer("setMedia", {
-	        mp3: "http://s3.amazonaws.com/audiojs/02-juicy-r.mp3" 
-	      });
-	 	}, 
-	 	supplied: "mp3",
-	    swfPath: "./resources/swf"
-	  });
-	});
-	</script>    
   </body>
 </html>

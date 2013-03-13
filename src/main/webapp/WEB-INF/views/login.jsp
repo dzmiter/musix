@@ -12,7 +12,7 @@
     <meta name="author" content="">
     <style type="text/css">
       body {
-        padding-top: 60px;
+        padding-top: 80px;
         padding-bottom: 40px;
         background-color: #f5f5f5;
       }
@@ -42,6 +42,7 @@
         padding: 7px 9px;
       }
     </style>
+    <c:import url="links.jsp"></c:import>
   </head>
 
   <body>

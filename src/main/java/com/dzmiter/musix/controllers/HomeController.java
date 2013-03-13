@@ -18,23 +18,14 @@ public class HomeController {
 	@Autowired
 	private CrudDAO dao;
 	
-	private static final int tracksOnPage = 50;
-	
+	private static int tracksOnPage = 100;
+		
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
+		List<Track> mostPopular = dao.topList(Track.class, tracksOnPage, "rating");
 		List<Track> mostListened = dao.topList(Track.class, tracksOnPage, "playsnumber");
-		List<Track> mostPopular;// = dao.topList(Track.class, tracksOnPage, "rating");
-		model.addAttribute("mostListened", mostListened);
-//		model.addAttribute("mostPopular", mostPopular);
-		
-		try {
-			dao.doIndex();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
-		mostPopular = dao.search(Track.class, "yu olol zsdf", "name");
 		model.addAttribute("mostPopular", mostPopular);
+		model.addAttribute("mostListened", mostListened);
 		return "home";
 	}
 	

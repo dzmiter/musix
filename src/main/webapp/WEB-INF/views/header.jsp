@@ -6,8 +6,8 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<form class="navbar-search pull-left">
-			  <input type="text" class="search-query" placeholder="Search">
+			<form class="navbar-search pull-left" method="post" action="./search">
+			  <input name="search_query" type="text" class="search-query" placeholder="Search" value="${search_query}">
 			</form>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
