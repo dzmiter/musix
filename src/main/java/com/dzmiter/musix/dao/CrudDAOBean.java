@@ -9,6 +9,7 @@ import org.hibernate.search.FullTextSession;
 import org.hibernate.search.Search;
 import org.hibernate.search.query.dsl.QueryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -61,6 +62,8 @@ public class CrudDAOBean implements CrudDAO {
 			addOrder(Order.desc(field)).setMaxResults(amount).list();
 	}
 	
+	// index once in 12 hours
+	@Scheduled(fixedDelay = 1000 * 60 * 60 * 12)
 	public void doIndex() throws InterruptedException {         
         FullTextSession fullTextSession = Search.getFullTextSession(sessionFactory.openSession());
         fullTextSession.createIndexer().startAndWait();         
@@ -77,5 +80,7 @@ public class CrudDAOBean implements CrudDAO {
         fullTextSession.close();         
         return contactList;
     }
+	
+	
 	
 }

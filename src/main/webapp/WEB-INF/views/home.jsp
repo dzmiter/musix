@@ -15,8 +15,7 @@
       }
     </style>
 	<c:import url="links.jsp"></c:import>
-	<link id="player" href="./resources/skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet">
-	<script type="text/javascript" src="./resources/js/playerStyleSwitcher.js"></script>
+	<link id="player" href="./resources/skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet">	
   </head>
 
   <body>
@@ -52,23 +51,29 @@
       </div>
      
 	  <c:import url="player.jsp"></c:import>
-     
+	  	  	  
       <c:import url="footer.jsp"></c:import>
 
     </div> <!-- /container -->
     
 	<script type="text/javascript" src="./resources/js/jquery.jplayer.min.js"></script>
+	<script type="text/javascript" src="http://www.jplayer.org/latest/js/jplayer.playlist.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
-	  $("#jquery_jplayer_1").jPlayer( {
-	    ready: function () {
-	      $(this).jPlayer("setMedia", {
-	        mp3: "http://s3.amazonaws.com/audiojs/02-juicy-r.mp3" 
-	      });
-	 	}, 
-	 	supplied: "mp3",
+	  $("#jquery_jplayer_1").jPlayer( {	     
 	    swfPath: "./resources/swf"
 	  });
+	  
+	  
+	  new jPlayerPlaylist({
+			jPlayer: "#jquery_jplayer_1",
+			cssSelectorAncestor: "#jp_container_1"
+		}, ${json}, {
+			swfPath: "./resources/swf",
+			supplied: "ogg, mp3",
+			wmode: "window"
+		});
+
 	});
 	</script>    
   </body>

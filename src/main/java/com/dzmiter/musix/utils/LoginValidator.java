@@ -6,6 +6,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -63,7 +64,7 @@ public class LoginValidator implements Validator {
 	public User checkUser(User user) {
 		List<User> users = dao.list(User.class);
 		String email = user.getEmail();
-		String password = user.getPassword();
+		String password = shaEncode(user.getPassword());
 		for(User u : users) {
 			if(u.getEmail().equals(email) && u.getPassword().equals(password)) {
 				return u;
@@ -74,6 +75,12 @@ public class LoginValidator implements Validator {
 	
 	public User getCheckedUser() {
 		return checkedUser;
+	}
+	
+	public static String shaEncode(String password) {
+		ShaPasswordEncoder encoder = new ShaPasswordEncoder();
+		String encodedPassword = encoder.encodePassword(password, null);
+		return encodedPassword;
 	}
 
 }

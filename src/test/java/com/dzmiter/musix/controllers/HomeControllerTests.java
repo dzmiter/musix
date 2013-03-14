@@ -9,7 +9,7 @@ public class HomeControllerTests {
     @Test 
     public void testhome() throws Exception { 
     	HomeController controller = new HomeController(); 
-        String view = controller.home(null); 
+        String view = controller.home(null, null); 
         assertEquals("home", view); 
     } 
 }

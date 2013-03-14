@@ -49,9 +49,6 @@ public class Track extends AbstractEntity {
 	private Integer size;
 	
 	@Column
-	private Integer bitrate;
-	
-	@Column
 	private String format;
 	
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -133,14 +130,6 @@ public class Track extends AbstractEntity {
 
 	public void setSize(Integer size) {
 		this.size = size;
-	}
-
-	public Integer getBitrate() {
-		return bitrate;
-	}
-
-	public void setBitrate(Integer bitrate) {
-		this.bitrate = bitrate;
 	}
 
 	public String getFormat() {

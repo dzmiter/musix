@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.dzmiter.musix.dao.CrudDAO;
 import com.dzmiter.musix.entity.User;
 import com.dzmiter.musix.utils.EmailSender;
+import com.dzmiter.musix.utils.LoginValidator;
 import com.dzmiter.musix.utils.RegistrationValidator;
 
 @Controller
@@ -38,7 +39,7 @@ public class RegistrationController {
 	
 	@RequestMapping(value = "/registration_do", method = RequestMethod.POST)
 	public String register(@ModelAttribute User user, BindingResult result,
-			HttpServletRequest request, Model model) {
+			HttpServletRequest request, Model model) throws EmailException {
 		
 		String repeat = request.getParameter("repeat");
 		validator.setRepeatedPassword(repeat);
@@ -47,13 +48,15 @@ public class RegistrationController {
 		if (result.hasErrors()) {
 			model.addAttribute("repeat", repeat);
 			return "registration";
-		} else {
-			user.setCreationDate(new Date());
+		} else {			
 			user.setRole("USER");
 			user.setIsActivated(Boolean.FALSE);
+			ShaPasswordEncoder encoder = new ShaPasswordEncoder();
+			String realPassword = user.getPassword();
+			String password = LoginValidator.shaEncode(realPassword);
+			user.setPassword(password);
 			User newUser = dao.merge(user);
-			newUser = dao.find(User.class, newUser.getId());
-			ShaPasswordEncoder encoder = new ShaPasswordEncoder();			
+			newUser = dao.find(User.class, newUser.getId());						
 			
 			String url = "http://localhost:8080/musix/activate?id=" + newUser.getId() +
 					"&t=" + encoder.encodePassword(newUser.getCreationDate().toString(), null) +
@@ -62,14 +65,9 @@ public class RegistrationController {
 					"пожалуйста, подтвердите вашу учётную запись в Musix.<br>" +
 					"После подтверждения регистрации вы получите полный доступ к Musix.<br>" +
 					"<a href=\"" + url + "\">Подтвердить регистрацию</a>.<hr>" + 
-					"Ваш пароль: <b>" + user.getPassword() + "<b><br>" +
+					"Ваш пароль: <b>" + realPassword + "</b><br>" +
 					"C уважением, команда Musix.";	
-			try {
-				sender.sendEmail(newUser.getEmail(), message);
-			} catch (EmailException e) {
-				e.printStackTrace();
-				return "registration";				
-			}
+			sender.sendEmail(newUser.getEmail(), message);
 			return "redirect:/";
 		}
 		
@@ -77,6 +75,8 @@ public class RegistrationController {
 	
 	@ModelAttribute("user")
 	public User newUser() {
-		return new User();
+		User user = new User();
+		user.setCreationDate(new Date());
+		return user;
 	}
 }

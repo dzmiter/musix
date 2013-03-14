@@ -21,7 +21,6 @@ public class SearchController {
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public String search(Model model, HttpServletRequest request) throws InterruptedException {
-		dao.doIndex();
 		String search_query = request.getParameter("search_query");
 		List<Track> searchResult = null;
 		if(search_query.length() > 0) {
