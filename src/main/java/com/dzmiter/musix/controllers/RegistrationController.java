@@ -58,7 +58,8 @@ public class RegistrationController {
 			User newUser = dao.merge(user);
 			newUser = dao.find(User.class, newUser.getId());						
 			
-			String url = "http://localhost:8080/musix/activate?id=" + newUser.getId() +
+			String url = "http://" + request.getServerName() + ":" + request.getServerHost() + 
+					"/musix/activate?id=" + newUser.getId() +
 					"&t=" + encoder.encodePassword(newUser.getCreationDate().toString(), null) +
 					"&c=" + encoder.encodePassword(newUser.getEmail(), null);
 			String message = "<b>" + newUser.getFirstName() + " " + newUser.getLastName() + "</b>,<br>" +
